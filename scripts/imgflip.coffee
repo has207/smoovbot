@@ -32,7 +32,7 @@
 #
 # Author:
 #   dylanwenzlau
-
+# Taken from https://github.com/dylanwenzlau/hubot-scripts
 
 inspect = require('util').inspect
 
