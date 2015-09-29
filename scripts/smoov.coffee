@@ -46,7 +46,7 @@ module.exports = (robot) ->
   
   robot.hear /(onion.rings,metaphorically)/i, (res) ->
     robot.send "My brain is full of fried onion rings. metaphorically"
-  
+  ###
   robot.respond /goals/i, (res) ->
     robot.send "I still don't have any goals other than avoiding dying."
     
@@ -100,4 +100,4 @@ module.exports = (robot) ->
   robot.repond /flight/i, (res) ->
     robot.send "I just got an email telling me I was upgraded to first class!"
     
-  
+  ###
