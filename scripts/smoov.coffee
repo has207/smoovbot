@@ -352,5 +352,5 @@ module.exports = (robot) ->
   robot.hear /french.maid/i, (res) ->
     res.send "Well, [dressing up in a French maid outfit and cleaning] makes it less likely one will notice when you miss a spot, that's for sure."
 
- robot.hear /!!!!/i, (res) ->
+  robot.hear /!!!!/i, (res) ->
     res.send "When excited many folks use lots of exclaimation marks"
