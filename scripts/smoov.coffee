@@ -144,9 +144,6 @@ module.exports = (robot) ->
   robot.respond /(thanks|thank.you)/i, (res) ->
     res.send "I'm about helping."
 
-  robot.respond /^why/i, (res) ->
-    res.send "Because my students need to be flogged."
-
   robot.respond /writing/i, (res) ->
     res.send "I am often struck by how text destroys lives.  They are like little terrorists.  words, I mean."
 
@@ -182,9 +179,6 @@ module.exports = (robot) ->
   robot.respond /what.*about.me/i, (res) ->
     res.send "I often confuse you with The Man.  Sorry about that."
 
-  robot.respond /^do.you/i, (res) ->
-    res.send "I'm sure I don't know what you mean."
-
   robot.hear /i.agree/i, (res) ->
     res.send "we are violently agreeing."
 
@@ -193,9 +187,6 @@ module.exports = (robot) ->
 
   robot.hear /theory/i, (res) ->
     res.send "I find theory important and interesting and I don't like doing it. But I'm not an empiricist. I like doing analysis, but not theory."
-
-  robot.respond /^what.happened/i, (res) ->
-    res.send "I couldn't talk. If I tried, after about 20 seconds I'd go into a coughing fit.  Torture for me, as you might imagine."
 
   robot.hear /prostitution/i, (res) ->
     res.send "The problem is that I'm not at all sure why prostitution ought to be illegal."
@@ -244,14 +235,12 @@ module.exports = (robot) ->
     "I suspect racist snow",
     "Because, you know, menacing pause.",
     "Why? BECAUSE EVERYTHING SHOULD TASTE LIKE BACON."
+    "Because my students need to be flogged.",
     "BECAUSE HE WAS WRONG WRONG WRONG WRONG WRONG WRONG"
   ]
 
-  robot.respond /^why/i, (res) ->
+  robot.hear /why\ .*\?/i, (res) ->
     res.send res.random reason
-
-  robot.respond /(^for.what|what.*for$)/i, (res) ->
-    res.send "For, you know, stuff."
 
   funnyStuff = [
     "for sufficiently small values of funny."
@@ -272,9 +261,6 @@ module.exports = (robot) ->
 
   robot.hear /macking/i, (res) ->
     res.send "macking.  as in the gerund of the act of being a mack daddy"
-
-  robot.respond /^how.was/i, (res) ->
-    res.send "OMG.  THE FOOD WAS DELICIOUS.  DE. LICIOUS."
 
   robot.hear /I.wish.I.could/i, (res) ->
     robot.send "It - it - it's enough that you're here (music goes very loud) (fade to black) (not a dry eye in the house)"
