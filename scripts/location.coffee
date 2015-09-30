@@ -10,4 +10,4 @@
 
 module.exports = (robot) ->
   robot.respond /where.*you/i, (res) ->
-    res.send 'http://github.com/has207/cobot'
+    res.send 'http://github.com/has207/smoovbot'
