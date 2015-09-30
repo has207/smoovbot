@@ -264,7 +264,7 @@ module.exports = (robot) ->
   robot.hear /that.s.funny/i, (res) ->
     res.send res.random funnyStuff
 
-  robot.hear /I.*\ me/, (res) ->
+  robot.hear /^I.*\ me/, (res) ->
     res.send "Mmmm, self mockery."
 
   robot.hear /grading/i, (res) ->
