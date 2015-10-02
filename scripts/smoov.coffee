@@ -64,7 +64,7 @@ module.exports = (robot) ->
     res.send "Once I give into *that*, I might as well be Associate Dean of Codfish or whatever."
 
   robot.hear /complain/i, (res) ->
-    say res, "I mean I complain in the general sense because that's an art, and one has to continually hone it. But blame is something else."
+    say res, "I complain in the general sense because that's an art, and one has to continually hone it."
 
   robot.respond /flip/i, (res) ->
     res.send "well, I'm often flip.  at least 18% of the time."
