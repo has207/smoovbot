@@ -287,19 +287,13 @@ module.exports = (robot) ->
   robot.hear /england/i, (res) ->
     say res, "Close your eyes and think of London.  But not a London Broil.  That would be bad."
 
-  robot.hear /hilarious/i, (res) ->
-    say res, "And by hilarious I mean it's been like major surgery without benefit of drugs"
-
-  robot.hear /guilt/i, (res) ->
-    say res, "You can live with the guilt?  THE MASSIVE CRUSHING GUILT?"
-
-  robot.respond /life/i, (res) ->
+  robot.respond /\ life/i, (res) ->
     res.send "Life is full of local mins."
 
   robot.hear /canada/i, (res) ->
     say res, "for crying out loud, the Canadian $ is worth as much as the American $.  it's the seventh sign"
 
-  robot.respond /time/i, (res) ->
+  robot.respond /\ time\ /i, (res) ->
     res.send "Time.  It heals all wounds, except the belly button."
 
   robot.hear /codfish/i, (res) ->
@@ -314,16 +308,16 @@ module.exports = (robot) ->
   robot.hear /iowa/i, (res) ->
     say res, "Iowa is 113% White."
 
-  robot.hear /meek/i, (res) ->
+  robot.hear /\ meek/i, (res) ->
     say res, "The meek shall inherit the earth. They are too weak to refuse."
 
-  robot.hear /eating/i, (res) ->
+  robot.hear /\ eating/i, (res) ->
     say res, "Eating is complicated."
 
-  robot.hear /math/i, (res) ->
+  robot.hear /\ math\ /i, (res) ->
     say res, "Math is for the weak, you know that."
 
-  robot.respond /true/i, (res) ->
+  robot.respond /\ true\ /i, (res) ->
     say res, "It's all about the true."
 
   robot.hear /hypocrisy/i, (res) ->
@@ -332,7 +326,7 @@ module.exports = (robot) ->
   robot.hear /failure/i, (res) ->
     say res, "You can fail no one but yourself."
 
-  robot.hear /poise/i, (res) ->
+  robot.hear /\ poise/i, (res) ->
     say res, "Quietly being beaten on isn't quite the same thing as poise."
 
   robot.hear /super.hero/i, (res) ->
