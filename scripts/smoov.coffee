@@ -262,9 +262,6 @@ module.exports = (robot) ->
   robot.hear /that.s.funny/i, (res) ->
     say res, res.random funnyStuff
 
-  robot.hear /^I.*\ (me\ .*|me)$/, (res) ->
-    say res, "Mmmm, self mockery."
-
   robot.hear /grading/i, (res) ->
     say res, "My students failed to heed my advice.  So, I killed them.  The papers, not the students.  At least that's what I'm telling the police."
 
