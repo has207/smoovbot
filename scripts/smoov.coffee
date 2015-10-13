@@ -17,42 +17,38 @@ module.exports = (robot) ->
   ]
 
   robot.hear /tenure/i, (res) ->
-    res.send res.random tenureStuff
+    say res, res.random tenureStuff
 
   robot.respond /you.*trouble/i, (res) ->
-    res.reply "So, my fate is sealed now.  SEALED."
+    say res, "my fate is sealed now.  SEALED."
 
   feeling = [
-    "Apparently I'm virile.",
     "I AM DRUNK WITH POWER.  DRUNK I SAY.",
     "I can feel evil universe charles chomping at the bit.  the small part of me that would like to ascend to power just so I can crush my enemies",
     "So it turns out I have some kind of horrible infection.",
-    "I hate everyone.",
     "I am fat with happy food taste goodness.  crab stuffed peppers.  filet mignon with some kind of cheese bacon thing.  I'm swooning from the memory",
-    "I've gotten too much sleep.",
-    "I'm all giddy.  GIDDY I TELL YOU",
-    "I'm sure there's a word in german.  \"the pleasure one gets from delivering something on a powerpoint slide with proper pauses and emphasis to a large audience\""
-  ]
+    "I've gotten too much sleep."
+ ]
 
-  robot.respond /how.are.you.feeling/i, (res) ->
-    res.send res.random feeling
+  robot.respond /you.ok\?/i, (res) ->
+    say res, res.random feeling
 
   plan = [
     "Well, you know me.  all about plans",
     "One can plan plans but not plan outcomes"
   ]
 
-  robot.respond /plan/i, (res) ->
-    res.send res.random plan
+  robot.respond /\ plans/i, (res) ->
+    say res, res.random plan
 
-  robot.respond /wearing/i, (res) ->
-    res.send "I'll have to wear.  PANTS.  ARGH"
+  robot.hear /worst.part/i, (res) ->
+    say res, "I'll have to wear.  PANTS.  ARGH"
 
-  robot.respond /how.old.*you/i, (res) ->
-    res.send "... I'm old and cranky.  GET OFF MY LAWN"
+  robot.respond /why.*you/i, (res) ->
+    say res, "... I'm old and cranky.  GET OFF MY LAWN"
 
   baconStuff = [
-    "I also like bacon. mmmm, bacon",
+    "I like bacon. mmmm, bacon",
     "I'll bet if you put bits on bacon on bacon you could go back in time",
     "Bacon is life"
   ]
@@ -61,19 +57,19 @@ module.exports = (robot) ->
     say res, res.random baconStuff
 
   robot.respond /would.you/i, (res) ->
-    res.send "Once I give into *that*, I might as well be Associate Dean of Codfish or whatever."
+    say res, "Once I give into *that*, I might as well be Associate Dean of Codfish or whatever."
 
   robot.hear /complain/i, (res) ->
     say res, "I complain in the general sense because that's an art, and one has to continually hone it."
 
   robot.respond /flip/i, (res) ->
-    res.send "well, I'm often flip.  at least 18% of the time."
+    say res, "well, I'm often flip.  at least 18% of the time."
 
   robot.hear /(onion.rings|metaphorically)/i, (res) ->
     say res, "My brain is full of fried onion rings.  metaphorically"
 
   robot.respond /goals/i, (res) ->
-    res.send "I still don't have any goals other than avoiding dying."
+    say res, "I still don't have any goals other than avoiding dying."
 
   robot.hear /chocolate/i, (res) ->
     say res, "We've agreed that I want chocolate.  and bacon."
@@ -104,26 +100,31 @@ module.exports = (robot) ->
     "Truthfully I tend to taunt."
   ]
 
-  robot.respond /describe.yourself/i, (res) ->
-    res.send res.random description
+  robot.respond /^you/i, (res) ->
+    say res, res.random description
 
-  robot.hear /curly/i, (res) ->
-    say res, "curly's Back AND THIS TIME HIS REWARD FUNCTION IS SET FOR: REVENGE"
+  curlyStuff = [
+    "I often confuse you with The Man.  Sorry about that.",
+    "curly's Back AND THIS TIME HIS REWARD FUNCTION IS SET FOR: REVENGE",
+    "Sometimes Curly and I just walk in the rain together and discuss our hopes and dreams"
+  ]
+    
+  robot.hear /\ curly/i, (res) ->
+    say res, res.random curlyStuff
 
   wifeStuff = [
     "I'm feeling virile so she may already be pregnant.",
-    "Maybe I'll move up in the [parent] rankings from distant second to close second.",
-    "My mother claims we're having twins and she's always right."
+    "Maybe I'll move up in the [parent] rankings from distant second to close second."
   ]
 
-  robot.respond /wife/i, (res) ->
-    res.send res.random wifeStuff
+  robot.respond /(wife|marriage|parent)/i, (res) ->
+    say res, res.random wifeStuff
 
   robot.hear /(isbell|smoov|smoovbot).said/i, (res) ->
     say res, "I'm being quoted for things I've stolen from other people"
 
-  robot.respond /parent/i, (res) ->
-    res.reply "The last thing I need is some parent deciding that I'm trying to sell porn to the kids."
+  robot.respond /parents/i, (res) ->
+    say res, "The last thing I need is some parent deciding that I'm trying to sell porn to the kids."
 
   democracyStuff = [
     "It should be one man one vote, and I should be that man.",
@@ -131,7 +132,7 @@ module.exports = (robot) ->
   ]
 
   robot.hear /democracy/i, (res) ->
-    res.send res.random democracyStuff
+    say res, res.random democracyStuff
 
   robot.hear /(crime|justin.bieber)/i, (res) ->
     say res, "I blame society"
@@ -141,32 +142,35 @@ module.exports = (robot) ->
     "I need more $$$$."
   ]
 
-  robot.hear /salary/i, (res) ->
-    res.send res.random salaryStuff
+  robot.hear /\$\$\$/i, (res) ->
+    say res, res.random salaryStuff
 
   robot.respond /atlanta/i, (res) ->
     say res, "I'd move but it's too cold everywhere else."
 
+  feelingStuff2 = [
+    "I'm all giddy.  GIDDY I TELL YOU",
+    "I'm sure there's a word in german.  \"the pleasure one gets from delivering something on a powerpoint slide with proper pauses and emphasis to a large audience\"",
+    "I don't particularly care. I think the strongest word to describe my feeling is bemused."
+  ]
+  
   robot.respond /how.*feel.about/i, (res) ->
-    res.send "But, anyway, like I say, I don't particularly care. I think the strongest word to describe my feeling is bemused."
+    say res, res.random feelingStuff2
 
   robot.respond /(thanks|thank.you)/i, (res) ->
-    res.send "I'm about helping."
+    say res, "I'm about helping."
 
-  robot.respond /writing/i, (res) ->
-    res.send "I am often struck by how text destroys lives.  They are like little terrorists.  words, I mean."
+  robot.hear /\ words/i, (res) ->
+    say res, "I am often struck by how text destroys lives.  They are like little terrorists.  words, I mean."
 
-  robot.respond /teaching/i, (res) ->
-    res.send "I'm teaching Game AI next term.  Mainly out of spite."
-
-  robot.respond /flight/i, (res) ->
-    res.send "I just got an email telling me I was upgraded to first class!"
+  robot.hear /teaching.*AI/, (res) ->
+    say res, "I'm teaching Game AI next term.  Mainly out of spite."
 
   robot.hear /^let.me.explain/i, (res) ->
-    res.reply "You can walk me through this if you want, but I'm going to refuse the conclusion."
+    say res, "You can walk me through this if you want, but I'm going to refuse the conclusion."
 
   robot.hear /related.work/i, (res) ->
-    say res, "And I hate related work sections.  More than anything in the world.  Even more than the flu."
+    say res, "I hate related work sections.  More than anything in the world.  Even more than the flu."
 
   action = [
     "I'm cooking in an iron skillet.  LIKE A MAN",
@@ -174,8 +178,8 @@ module.exports = (robot) ->
     "I \"co-organized\" a workshop yesterday.  It took all I had not to gouge out my brain.",
   ]
 
-  robot.respond /what.are.you.doing/i, (res) ->
-    res.send res.random action
+  robot.respond /what.s.up/i, (res) ->
+    say res, res.random action
 
   hate = [
     "I SHALL HOLD MY HATRED INSIDE LIKE A BALL OF, UM, HATRED.",
@@ -185,17 +189,24 @@ module.exports = (robot) ->
   robot.hear /hatred/i, (res) ->
     say res, res.random hate
 
-  robot.respond /what.*about.me/i, (res) ->
-    res.send "I often confuse you with The Man.  Sorry about that."
-
+  agreeStuff = [
+    "We've agreed that I want chocolate.  and bacon.",
+    "we are violently agreeing."
+  ]
+  
   robot.hear /i.agree/i, (res) ->
-    say res, "we are violently agreeing."
+    say res, res.random agreeStuff
 
   robot.hear /surprise/i, (res) ->
     say res, "I hate surprises"
 
+  theoryStuff = [
+    "I find theory important and interesting and I don't like doing it.",
+    "I like doing analysis, but not theory."
+  ]
+  
   robot.hear /theory/i, (res) ->
-    say res, "I find theory important and interesting and I don't like doing it. But I'm not an empiricist. I like doing analysis, but not theory."
+    say res, res.random theoryStuff
 
   robot.hear /prostitution/i, (res) ->
     say res, "The problem is that I'm not at all sure why prostitution ought to be illegal."
@@ -212,14 +223,14 @@ module.exports = (robot) ->
   robot.hear /(christ|x)mas.break/i, (res) ->
     say res, "If Christmas break doesn't come soon, I will start killing those around me."
 
-  robot.hear /office.hours/i, (res) ->
+  robot.hear /hold.office.hours/i, (res) ->
     say res, "I don't even hold office hours.  I hate them.  office hours I mean.  Oh, and undergrads. I have turned my hate into, well, more hate."
 
   robot.hear /resonant/i, (res) ->
     say res, "It's a heavy burden, being resonant."
 
-  robot.respond /fantasy/i, (res) ->
-    res.send "My fantasy involves someone folding and putting up my laundry.  Oh, and of course <CENSORED> and <CENSORED>, but only on Tuesdays, naturally."
+  robot.hear /my.fantasy/i, (res) ->
+    say res, "My fantasy involves someone folding and putting up my laundry.  Oh, and of course <CENSORED> and <CENSORED>, but only on Tuesdays, naturally."
 
   robot.hear /MIT/, (res) ->
     say res, "...I was at MIT for 8 years.  I'm used to be attacked on an hourly basis."
@@ -230,22 +241,15 @@ module.exports = (robot) ->
   robot.hear /ebert/i, (res) ->
     say res, "Ebert is hilarious when he's pissed off."
 
-  robot.hear /president/i, (res) ->
-    say res, "We do have a president who cares.  About pork rinds."
-
   robot.hear /weird.al/i, (res) ->
     say res, "he's amazing.  First off, White & Nerdy is amazing.  Second, it's awesome."
-
-  robot.hear /(clinton|kerry)/i, (res) ->
-    say res, "Clinton is a lot like Kerry actually.  but shorter.  and less of a war hero"
 
   reason = [
     "Somehow this is your fault.",
     "I suspect racist snow",
     "Because, you know, menacing pause.",
     "Why? BECAUSE EVERYTHING SHOULD TASTE LIKE BACON."
-    "Because my students need to be flogged.",
-    "BECAUSE HE WAS WRONG WRONG WRONG WRONG WRONG WRONG"
+    "Because my students need to be flogged."
   ]
 
   robot.hear /why\ .*\?/i, (res) ->
@@ -259,13 +263,13 @@ module.exports = (robot) ->
     "Strange'.  clap clap."
   ]
 
-  robot.hear /that.s.funny/i, (res) ->
+  robot.hear /that.*funny/i, (res) ->
     say res, res.random funnyStuff
 
-  robot.hear /grading/i, (res) ->
+  robot.hear /grading.papers/i, (res) ->
     say res, "My students failed to heed my advice.  So, I killed them.  The papers, not the students.  At least that's what I'm telling the police."
 
-  robot.hear /macking/i, (res) ->
+  robot.hear /\ macking/i, (res) ->
     say res, "macking.  as in the gerund of the act of being a mack daddy"
 
   robot.hear /I.wish.I.could/i, (res) ->
@@ -285,13 +289,13 @@ module.exports = (robot) ->
     say res, "Close your eyes and think of London.  But not a London Broil.  That would be bad."
 
   robot.respond /\ life/i, (res) ->
-    res.send "Life is full of local mins."
+    say res, "Life is full of local mins."
 
-  robot.hear /canada/i, (res) ->
+  robot.hear /armageddon/i, (res) ->
     say res, "for crying out loud, the Canadian $ is worth as much as the American $.  it's the seventh sign"
 
-  robot.respond /\ time\ /i, (res) ->
-    res.send "Time.  It heals all wounds, except the belly button."
+  robot.hear /can.t.get.over/i, (res) ->
+    say res, "Time.  It heals all wounds, except the belly button."
 
   robot.hear /codfish/i, (res) ->
     say res, "codfish are terrible brainstormers"
@@ -308,10 +312,18 @@ module.exports = (robot) ->
   robot.hear /\ meek/i, (res) ->
     say res, "The meek shall inherit the earth. They are too weak to refuse."
 
-  robot.hear /\ eating/i, (res) ->
+  robot.hear /what.*\ eating/i, (res) ->
     say res, "Eating is complicated."
 
-  robot.hear /\ math\ /i, (res) ->
+  linearAlgebraStuff = [
+    "Linear algebra is nice but not necessary, though when a term like \"eigenproblem\" is used, you'll feel less panic",
+    "Something involving determining eigenvectors or eigenvalues.."
+  ]
+  
+  robot.hear /linear.algebra/i, (res) ->
+    say res, res.random linearAlgebraStuff
+    
+  robot.hear /mathematics\ /i, (res) ->
     say res, "Math is for the weak, you know that."
 
   robot.respond /\ true\ /i, (res) ->
@@ -320,7 +332,7 @@ module.exports = (robot) ->
   robot.hear /hypocrisy/i, (res) ->
     say res, "Hypocrisy is a religion in many ways"
 
-  robot.hear /failure/i, (res) ->
+  robot.hear /I.*failure/, (res) ->
     say res, "You can fail no one but yourself."
 
   robot.hear /\ poise/i, (res) ->
