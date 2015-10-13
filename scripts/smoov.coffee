@@ -28,7 +28,7 @@ module.exports = (robot) ->
     "So it turns out I have some kind of horrible infection.",
     "I am fat with happy food taste goodness.  crab stuffed peppers.  filet mignon with some kind of cheese bacon thing.  I'm swooning from the memory",
     "I've gotten too much sleep."
- ]
+  ]
 
   robot.respond /you.ok\?/i, (res) ->
     say res, res.random feeling
