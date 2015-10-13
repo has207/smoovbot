@@ -148,13 +148,13 @@ module.exports = (robot) ->
   robot.respond /atlanta/i, (res) ->
     say res, "I'd move but it's too cold everywhere else."
 
-  feelingStuff2 = [
+  feelingStuff = [
     "I'm all giddy.  GIDDY I TELL YOU",
     "I don't particularly care. I think the strongest word to describe my feeling is bemused."
   ]
   
-  robot.respond /how.*feel.about/i, (res) ->
-    say res, res.random feelingStuff2
+  robot.respond /how.*you.*feel/i, (res) ->
+    say res, res.random feelingStuff
 
   robot.respond /(thanks|thank.you)/i, (res) ->
     say res, "I'm about helping."
