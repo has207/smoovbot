@@ -150,7 +150,6 @@ module.exports = (robot) ->
 
   feelingStuff2 = [
     "I'm all giddy.  GIDDY I TELL YOU",
-    "I'm sure there's a word in german.  \"the pleasure one gets from delivering something on a powerpoint slide with proper pauses and emphasis to a large audience\"",
     "I don't particularly care. I think the strongest word to describe my feeling is bemused."
   ]
   
