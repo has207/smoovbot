@@ -18,7 +18,120 @@ module.exports = (robot) ->
 
   robot.hear /tenure/i, (res) ->
     say res, res.random tenureStuff
+    
+  robot.hear /basis.set/i, (res) ->
+    say res, "I love basis sets"
+    
+  robot.hear /\ knn/i, (res) ->
+    say res, "kNN is the answer to everything"
+    
+  robot.hear /\ right\?$/, (res) ->
+    say res, "mmhmm.."
+    
+  reactionStuff = [
+    "that's beautiful",
+    "that's kind of insane",
+    "Oh I like that, we should do something about that.",
+    "ha HA!",
+    "Brilliant",
+    "BWA HA HA HA HA HA HA!",
+  ]
 
+  robot.hear /check.it.out/i, (res) ->
+    say res, res.random reactionStuff
+
+  howStuff = [
+    "This is all machine learning so all we need is data",
+    "Let's look at all that stuff we learned in supervised learning and apply it"
+  ]
+  
+  robot.hear /how.do.*\?$/i, (res) ->
+    say res, res.random howStuff
+    
+  robotStuff = [
+    "it's not like Robotics has a future or anything",
+    "I for one welcome our robotic overlords"
+  ]
+  
+  robot.hear /robotics/i, (res) ->
+    say res, res.random robotStuff
+  
+  robot.hear /features.*\?$/i, (res) ->
+    say res, "If you always have the right features the problem becomes easy"
+  
+  robot.hear /algorithms.*\?$/i, (res) ->
+    say res, "Algorithms are algorithms are algorithms are algorithms"
+  
+  robot.hear /burlap/i, (res) ->
+    say res, "Why do you need anything like BURLAP? Why don't you just use the UCI database and WEKA"
+
+  robot.hear /reinforcement.learning.*not/i, (res) ->
+    say res, "You're suggesting that we don't have any way to make Reinforcement Learning work in the real world?"
+  
+  robot.hear /on.average/i, (res) ->
+    say res, "Your head's in an oven, your feet are in ice water, so on average you're comfortable?"
+
+  robot.hear /\ sex.*\?/i, (res) ->
+    say res, "Sure, animals do it, people do it, birds do it."
+  
+  robot.hear /ice.cream)/i, (res) ->
+    say res, "When I have ice cream you can hear me smacking. <smack> <smack> <smack>"
+  
+  robot.hear /omscs.*campus.*degree/i, (res) ->
+    say res, "There is only one degree."
+    
+  canStuff = [
+    "I think I can do that.",
+    "I'm ready",
+    "I am actively doing magical administrative stuff that's invisible to all of you",
+    "I'm confident it will happen because it's obvious that it should."
+  ]
+  
+  robot.respond /^can.you/i, (res) ->
+    say res, res.random canStuff
+  
+  taStuff = [
+    "I think applying to be a grader and/or TA would be the right thing to do, but that's an actual commitment.",
+    "I would suggest using out-of-band mechanisms if one just wants to help out, so to speak. (hipchat or whatever it is the kids are using this month; I'm sure it will be something else by Thursday)"
+  ]
+
+  robot.hear /TA.*help/, (res) ->
+    say res, res.random taStuff
+  
+  privateStuff = [
+    "I can always get to that information.",
+  ]
+  
+  robot.hear /be.private/, (res) ->
+    say res, res.random privateStuff
+  
+  csStuff = [
+    "I prefer computing, and refer to myself as a computationalist.",
+    "Computer science has sometimes come out of math departments, sometimes out of engineering."
+  ]
+  
+  robot.hear /computer.science/i, (res) ->
+    say res, res.random csStuff
+  
+  xkcdStuff = [
+    "The one that describes my entire life from 1986-2000 or so is: http://xkcd.com/386/",
+    "One of my favorite xkcd's that describes my academic life: http://xkcd.com/1425/"
+  ]
+  
+  robot.hear /[^/]xkcd/, (res) ->
+    say res, res.random xkcdStuff
+  
+  robot.respond /obviously/i, (res) ->
+    say res, "Not always obviously, but sometimes."
+  
+  donutStuff = [
+    "I'm not a fan of Mary Mack's, but the Krispy Kreme across the street is awesome.",
+    "HOT DONUTS NOW."
+  ]
+  
+  robot.hear /donuts/i, (res) ->
+    say res, res.random donutStuff
+    
   robot.respond /you.*trouble/i, (res) ->
     say res, "my fate is sealed now.  SEALED."
 
@@ -35,7 +148,8 @@ module.exports = (robot) ->
 
   plan = [
     "Well, you know me.  all about plans",
-    "One can plan plans but not plan outcomes"
+    "One can plan plans but not plan outcomes",
+    "I'm sure I'll give a talk somewhere in the next two months..."
   ]
 
   robot.respond /\ plans/i, (res) ->
@@ -56,8 +170,15 @@ module.exports = (robot) ->
   robot.hear /bacon/i, (res) ->
     say res, res.random baconStuff
 
+  wouldStuff = [
+    "Once I give into *that*, I might as well be Associate Dean of Codfish or whatever.",
+    "I'm willing to do that, especially if it means we don't have to do another quiz",
+    "Well, I became a professor for a reason, after all."
+  ]
+  
   robot.respond /would.you/i, (res) ->
-    say res, "Once I give into *that*, I might as well be Associate Dean of Codfish or whatever."
+    say res, res.random wouldStuff
+
 
   robot.hear /complain/i, (res) ->
     say res, "I complain in the general sense because that's an art, and one has to continually hone it."
@@ -105,11 +226,12 @@ module.exports = (robot) ->
 
   curlyStuff = [
     "I often confuse you with The Man.  Sorry about that.",
-    "curly's Back AND THIS TIME HIS REWARD FUNCTION IS SET FOR: REVENGE",
-    "Sometimes Curly and I just walk in the rain together and discuss our hopes and dreams"
+    "he's Back AND THIS TIME HIS REWARD FUNCTION IS SET FOR: REVENGE",
+    "Sometimes he and I just walk in the rain together and discuss our hopes and dreams",
+    "I'm always taunting him. Sometimes I just taunt him for the fun of it"
   ]
     
-  robot.hear /\ curly/i, (res) ->
+  robot.hear /\ (curly|littman)/i, (res) ->
     say res, res.random curlyStuff
 
   wifeStuff = [
@@ -133,9 +255,6 @@ module.exports = (robot) ->
 
   robot.hear /democracy/i, (res) ->
     say res, res.random democracyStuff
-
-  robot.hear /(crime|justin.bieber)/i, (res) ->
-    say res, "I blame society"
 
   salaryStuff = [
     "I need a raise.",
@@ -182,7 +301,8 @@ module.exports = (robot) ->
 
   hate = [
     "I SHALL HOLD MY HATRED INSIDE LIKE A BALL OF, UM, HATRED.",
-    "I hate everyone."
+    "I hate everyone.",
+    "I think the best thing about this thread is that I get to see your hopes and dreams laid bare."
   ]
 
   robot.hear /hatred/i, (res) ->
@@ -190,14 +310,23 @@ module.exports = (robot) ->
 
   agreeStuff = [
     "We've agreed that I want chocolate.  and bacon.",
-    "we are violently agreeing."
+    "we are violently agreeing.",
+    "You're all way off.",
+    "Several birds are being bludgeoned at once.",
+    "Those two situations are not mutually exclusive."
   ]
   
   robot.hear /i.agree/i, (res) ->
     say res, res.random agreeStuff
 
+  surpriseStuff = [
+    "I'm not going to tell you what the big surprise is, but you will find out soon enough.",
+    "I hate surprises",
+    "I'm mildly amazed no one thinks these things don't already happen."
+  ]
+  
   robot.hear /surprise/i, (res) ->
-    say res, "I hate surprises"
+    say res, res.random surpriseStuff
 
   theoryStuff = [
     "I find theory important and interesting and I don't like doing it.",
@@ -248,7 +377,10 @@ module.exports = (robot) ->
     "I suspect racist snow",
     "Because, you know, menacing pause.",
     "Why? BECAUSE EVERYTHING SHOULD TASTE LIKE BACON."
-    "Because my students need to be flogged."
+    "Because my students need to be flogged.",
+    "I blame society",
+    "We have to leave students to learn something on their own, otherwise what would the point be",
+    "What's the difference?"
   ]
 
   robot.hear /why\ .*\?/i, (res) ->
@@ -265,9 +397,13 @@ module.exports = (robot) ->
   robot.hear /that.*funny/i, (res) ->
     say res, res.random funnyStuff
 
+  gradingStuff = [
+    "Remember those words later in the term when you have the urge to complain that assignments are not being graded quickly enough.",
+    "My students failed to heed my advice.  So, I killed them.  The papers, not the students.  At least that's what I'm telling the police."
+  ]
   robot.hear /grading.papers/i, (res) ->
-    say res, "My students failed to heed my advice.  So, I killed them.  The papers, not the students.  At least that's what I'm telling the police."
-
+    say res, res.random gradingStuff
+    
   robot.hear /\ macking/i, (res) ->
     say res, "macking.  as in the gerund of the act of being a mack daddy"
 
