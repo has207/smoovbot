@@ -74,7 +74,7 @@ module.exports = (robot) ->
   robot.hear /\ sex.*\?/i, (res) ->
     say res, "Sure, animals do it, people do it, birds do it."
   
-  robot.hear /ice.cream)/i, (res) ->
+  robot.hear /ice.cream/i, (res) ->
     say res, "When I have ice cream you can hear me smacking. <smack> <smack> <smack>"
   
   robot.hear /omscs.*campus.*degree/i, (res) ->
