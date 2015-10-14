@@ -8,6 +8,17 @@ module.exports = (robot) ->
       said = said.concat [s]
       res.send s
   
+  cheatingStuff = [
+    "if a large number of students start doing this sort of thing, we will have to put a whole structure into place, and I'll get a headache.",
+    "I have heard the \"but how was I supposed to know I couldn't collaborate?!\""
+  ]
+  
+  robot.hear /\ cheating/, (res) ->
+    say res, res.random cheatingStuff
+  
+  robot.hear /love.[RM]L/, (res) ->
+    say res, "The instructor of record is quite handsome, as well."
+    
   tryStuff = [
     "the way the world is currently set up it wouldn't be possible",
     "there is a good chance you would fail (in all honesty)"
@@ -186,16 +197,19 @@ module.exports = (robot) ->
     say res, res.random baconStuff
 
   wouldStuff = [
-    "Once I give into *that*, I might as well be Associate Dean of Codfish or whatever.",
+    "Once you give into *that*, you might as well be Associate Dean of Codfish or whatever.",
     "I'm willing to do that, especially if it means we don't have to do another quiz",
-    "Well, I became a professor for a reason, after all."
+    "Well, I became a professor for a reason, after all.",
+    "I'm quite sure it will happen"
   ]
   
-  robot.respond /would.you/i, (res) ->
+  robot.hear /^would.you/i, (res) ->
     say res, res.random wouldStuff
 
+  robot.hear /can.succeed/, (res) ->
+    say res, '"can succeed" is not the same as "will succeed" and "did not succeed" is not the same as "could not have succeeded"'
 
-  robot.hear /complain/i, (res) ->
+  robot.hear /complain.*\?/i, (res) ->
     say res, "I complain in the general sense because that's an art, and one has to continually hone it."
 
   robot.respond /flip/i, (res) ->
@@ -392,7 +406,14 @@ module.exports = (robot) ->
   robot.hear /weird.al/i, (res) ->
     say res, "he's amazing.  First off, White & Nerdy is amazing.  Second, it's awesome."
 
+  robot.hear /KBAI.is/, (res) ->
+    say res, "KBAI is GOFAI with a Cog Sci emphasis"
+  
+  robot.hear /ML.exams/, (res) ->
+    say res, "I love those exams"
+    
   reason = [
+    "Doing otherwise would probably require that we hire all of you to reprogram Banner in COBOL++.",
     "because, you know, physics.",
     "Somehow this is your fault.",
     "I suspect racist snow",
