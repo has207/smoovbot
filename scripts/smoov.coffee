@@ -9,6 +9,7 @@ module.exports = (robot) ->
       res.send s
   
   cheatingStuff = [
+    "What are our ethical obligations here?",
     "if a large number of students start doing this sort of thing, we will have to put a whole structure into place, and I'll get a headache.",
     "I have heard the \"but how was I supposed to know I couldn't collaborate?!\"",
     "one could argue that such an act is unethical"
@@ -71,14 +72,22 @@ module.exports = (robot) ->
   
   robot.hear /(charles|isbell|smoov).*evil/i, (res) ->
     say res, res.random evilStuff
+  
+  robot.hear /\ 90s/, (res) ->
+    say res, "Ha! I remember those days..."
+  
+  robot.hear /interest.*programming/, (res) ->
+    say res, "we aren't interested in programming as anything more than a means to an end. We are interested in computational thinking."
     
   howStuff = [
+    "It all just sort of works out.",
     "there a lot of things to consider and one should be explicit about them if possible",
     "To start, sketch out what the metric of success is. What are the trade-offs?",
     "The question is an interesting one, sure. I'd be happy to hear ideas.",
     "I don't understand the question."
     "There are mechanisms. (Google should get you there)",
     "This is all machine learning so all we need is data",
+    "I'm confused by this wording.",
     "Let's look at all that stuff we learned in supervised learning and apply it",
     "As we move toward steady state, the professionals will figure out how to manage the reality."
   ]
@@ -159,6 +168,7 @@ module.exports = (robot) ->
     say res, res.random privateStuff
   
   csStuff = [
+    "(I agree, though I'd use computing instead of computer science and computationalist instead of computer scientist because I've always thought that computer science sounds like a cry for help... but that's really besides the point)",
     "I prefer computing, and refer to myself as a computationalist.",
     "Computer science has sometimes come out of math departments, sometimes out of engineering."
   ]
@@ -384,6 +394,7 @@ module.exports = (robot) ->
     say res, res.random hate
 
   agreeStuff = [
+    "I think the only thing we agree on is to not use Word.",
     "We've agreed that I want chocolate.  and bacon.",
     "we are violently agreeing.",
     "You're all way off.",
@@ -490,8 +501,12 @@ module.exports = (robot) ->
   robot.hear /C\+\+/, (res) ->
     say res, "one needs C++ to really do permanent damage to one's psyche."
   
+  registrationStuff = [
+    "I used to write modem scripts to register myself and my friends as quickly as possible",
+    "A wise man once said: I think the problem with registration will be hoarding."
+  ]
   robot.hear /registration.*problem/i, (res) ->
-    say res, "A wise man once said: I think the problem with registration will be hoarding."
+    say res, res.random registrationStuff
 
   robot.hear /solutions/, (res) ->
     say res, "there are better and worse solutions"
