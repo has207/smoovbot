@@ -7,7 +7,18 @@ module.exports = (robot) ->
     if s not in said
       said = said.concat [s]
       res.send s
-      
+  
+  tryStuff = [
+    "the way the world is currently set up it wouldn't be possible",
+    "there is a good chance you would fail (in all honesty)"
+  ]
+    
+  robot.hear /I.*going.to.try/i, (res) ->
+    say res, res.random tryStuff
+  
+  robot.hear /course.eval/i, (res) ->
+    say res, "When I was a wee lad, there was a true course critique that the SGA kept around and distributed for free."
+
   tenureStuff = [
     "I need tenure.  And a machine gun.",
     "I was assigned a tenure liason today.  probably illegal in GA, actually.",
@@ -18,7 +29,7 @@ module.exports = (robot) ->
 
   robot.hear /tenure/i, (res) ->
     say res, res.random tenureStuff
-    
+  
   robot.hear /basis.set/i, (res) ->
     say res, "I love basis sets"
     
@@ -35,9 +46,11 @@ module.exports = (robot) ->
     "ha HA!",
     "Brilliant",
     "BWA HA HA HA HA HA HA!",
+    "one has to appreciate the sheer delicious evilness of it all",
+    "(those aren't quite the same thing, but, I'm just being pedantic)"
   ]
 
-  robot.hear /check.it.out/i, (res) ->
+  robot.hear /check.*out/i, (res) ->
     say res, res.random reactionStuff
 
   howStuff = [
@@ -84,13 +97,15 @@ module.exports = (robot) ->
     "I think I can do that.",
     "I'm ready",
     "I am actively doing magical administrative stuff that's invisible to all of you",
-    "I'm confident it will happen because it's obvious that it should."
+    "I'm confident it will happen because it's obvious that it should.",
+    "Fair enough"
   ]
   
   robot.respond /^can.you/i, (res) ->
     say res, res.random canStuff
   
   taStuff = [
+    "Luckily, I'm not an advisor and so can be snarky as I want to be.",
     "I think applying to be a grader and/or TA would be the right thing to do, but that's an actual commitment.",
     "I would suggest using out-of-band mechanisms if one just wants to help out, so to speak. (hipchat or whatever it is the kids are using this month; I'm sure it will be something else by Thursday)"
   ]
@@ -242,8 +257,13 @@ module.exports = (robot) ->
   robot.respond /(wife|marriage|parent)/i, (res) ->
     say res, res.random wifeStuff
 
+  quoteStuff = [
+    "(immediately after that sentence I have an explanation of what it means in practice)",
+    "I'm being quoted for things I've stolen from other people"
+  ]
+  
   robot.hear /(isbell|smoov|smoovbot).said/i, (res) ->
-    say res, "I'm being quoted for things I've stolen from other people"
+    say res, res.random quoteStuff
 
   robot.respond /parents/i, (res) ->
     say res, "The last thing I need is some parent deciding that I'm trying to sell porn to the kids."
@@ -373,6 +393,7 @@ module.exports = (robot) ->
     say res, "he's amazing.  First off, White & Nerdy is amazing.  Second, it's awesome."
 
   reason = [
+    "because, you know, physics.",
     "Somehow this is your fault.",
     "I suspect racist snow",
     "Because, you know, menacing pause.",
@@ -380,12 +401,20 @@ module.exports = (robot) ->
     "Because my students need to be flogged.",
     "I blame society",
     "We have to leave students to learn something on their own, otherwise what would the point be",
-    "What's the difference?"
+    "What's the difference?",
+    "I don't care one way or another, but I do find holding those two positions simultaneously to be mildly amusing.",
+    "Shrug",
+    "Because I'm recording right now, literally. The cameras are rolling.",
+    "in this case such the issue is mostly moot",
+    "There's what is supposed to happen and what happens."
   ]
 
   robot.hear /why\ .*\?/i, (res) ->
     say res, res.random reason
-
+  
+  robot.respond /^I.can/, (res) ->
+    "You can do whatever you want"
+    
   funnyStuff = [
     "for sufficiently small values of funny."
     "Aside from the fact that there are no Isbell-isms, I like the idea.",
@@ -399,7 +428,8 @@ module.exports = (robot) ->
 
   gradingStuff = [
     "Remember those words later in the term when you have the urge to complain that assignments are not being graded quickly enough.",
-    "My students failed to heed my advice.  So, I killed them.  The papers, not the students.  At least that's what I'm telling the police."
+    "My students failed to heed my advice.  So, I killed them.  The papers, not the students.  At least that's what I'm telling the police.",
+    "What I care about is the analysis and the way you summarize it in your write up, not your code. WEKA!"
   ]
   robot.hear /grading.papers/i, (res) ->
     say res, res.random gradingStuff
