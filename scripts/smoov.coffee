@@ -10,7 +10,8 @@ module.exports = (robot) ->
   
   cheatingStuff = [
     "if a large number of students start doing this sort of thing, we will have to put a whole structure into place, and I'll get a headache.",
-    "I have heard the \"but how was I supposed to know I couldn't collaborate?!\""
+    "I have heard the \"but how was I supposed to know I couldn't collaborate?!\"",
+    "one could argue that such an act is unethical"
   ]
   
   robot.hear /\ cheating/, (res) ->
@@ -56,21 +57,45 @@ module.exports = (robot) ->
     "Oh I like that, we should do something about that.",
     "ha HA!",
     "Brilliant",
-    "BWA HA HA HA HA HA HA!",
     "one has to appreciate the sheer delicious evilness of it all",
     "(those aren't quite the same thing, but, I'm just being pedantic)"
   ]
-
+  
   robot.hear /check.*out/i, (res) ->
     say res, res.random reactionStuff
 
+  evilStuff = [
+    "I'm not being evil here",
+    "BWA HA HA HA HA HA HA!",
+  ]
+  
+  robot.hear /(charles|isbell|smoov).*evil/i, (res) ->
+    say res, res.random evilStuff
+    
   howStuff = [
+    "there a lot of things to consider and one should be explicit about them if possible",
+    "To start, sketch out what the metric of success is. What are the trade-offs?",
+    "The question is an interesting one, sure. I'd be happy to hear ideas.",
+    "I don't understand the question."
+    "There are mechanisms. (Google should get you there)",
     "This is all machine learning so all we need is data",
-    "Let's look at all that stuff we learned in supervised learning and apply it"
+    "Let's look at all that stuff we learned in supervised learning and apply it",
+    "As we move toward steady state, the professionals will figure out how to manage the reality."
   ]
   
   robot.hear /how.do.*\?$/i, (res) ->
     say res, res.random howStuff
+  
+  varsityStuff = [
+    "The Varsity is revenge by a student who failed out of Tech. Draw your own conclusions.",
+    "Even the soda is greasy at the Varsity."
+  ]
+  
+  robot.hear /the.varsity/i, (res) ->
+    say res, res.random varsityStuff
+  
+  robot.hear /morality/, (res) ->
+    say res, "One cannot judge it on a moral scale. Is the tornado moral? The earthquake? The meteor that ended the dinosaurs?"
     
   robotStuff = [
     "it's not like Robotics has a future or anything",
@@ -105,14 +130,16 @@ module.exports = (robot) ->
     say res, "There is only one degree."
     
   canStuff = [
+    "The question is an interesting one, sure. I'd be happy to hear ideas.",
     "I think I can do that.",
     "I'm ready",
     "I am actively doing magical administrative stuff that's invisible to all of you",
     "I'm confident it will happen because it's obvious that it should.",
-    "Fair enough"
+    "Fair enough",
+    "I thought that was effectively what we did."
   ]
   
-  robot.respond /^can.you/i, (res) ->
+  robot.respond /can.you/i, (res) ->
     say res, res.random canStuff
   
   taStuff = [
@@ -197,14 +224,19 @@ module.exports = (robot) ->
     say res, res.random baconStuff
 
   wouldStuff = [
+    "The question is an interesting one, sure. I'd be happy to hear ideas.",
     "Once you give into *that*, you might as well be Associate Dean of Codfish or whatever.",
-    "I'm willing to do that, especially if it means we don't have to do another quiz",
+    "I'd be willing to do that, especially if it means we don't have to do another quiz",
     "Well, I became a professor for a reason, after all.",
-    "I'm quite sure it will happen"
+    "I'm quite sure it will happen",
+    "I really don't expect so, but no official promises yet."
   ]
   
-  robot.hear /^would.you/i, (res) ->
+  robot.hear /would.you/i, (res) ->
     say res, res.random wouldStuff
+
+  robot.hear /worth.it/, (res) ->
+    say res, "It would only really be worth it for the harvesting of tears."
 
   robot.hear /can.succeed/, (res) ->
     say res, '"can succeed" is not the same as "will succeed" and "did not succeed" is not the same as "could not have succeeded"'
@@ -273,7 +305,8 @@ module.exports = (robot) ->
 
   quoteStuff = [
     "(immediately after that sentence I have an explanation of what it means in practice)",
-    "I'm being quoted for things I've stolen from other people"
+    "I'm being quoted for things I've stolen from other people",
+    "A wise man once said: quoting oneself is perfectly reasonable."
   ]
   
   robot.hear /(isbell|smoov|smoovbot).said/i, (res) ->
@@ -309,8 +342,16 @@ module.exports = (robot) ->
   robot.respond /how.*you.*feel/i, (res) ->
     say res, res.random feelingStuff
 
+  thanksStuff = [
+    "I'm about helping",
+    "Okay, back to patrolling Gotham."
+  ]
+  
   robot.respond /(thanks|thank.you)/i, (res) ->
-    say res, "I'm about helping."
+    say res, res.random thanksStuff
+    
+  robot.hear /thank.*smoov/i, (res) ->
+    say res, res.random thanksStuff
 
   robot.hear /\ words/i, (res) ->
     say res, "I am often struck by how text destroys lives.  They are like little terrorists.  words, I mean."
@@ -347,12 +388,26 @@ module.exports = (robot) ->
     "we are violently agreeing.",
     "You're all way off.",
     "Several birds are being bludgeoned at once.",
-    "Those two situations are not mutually exclusive."
+    "Those two situations are not mutually exclusive.",
+    "Truthfully, it is not a bad idea, but it is impractical to enforce.",
+    "that would border on the insane, but it is allowed",
+    "Nah...",
+    "Typically, yes.",
+    "I know you're wrong because I'm the guy who makes the policy"
   ]
   
   robot.hear /i.agree/i, (res) ->
     say res, res.random agreeStuff
 
+  robot.hear /s\ related/, (res) ->
+    say res, "Being related is not enough."
+    
+  robot.hear /school.colors/i, (res) ->
+    say res, "There was an entire task force put together in the 1990s to deal with our official school color issue and apparently it was bit of a blood bath. Turns out that people really, really care about this sort of thing."
+
+  robot.hear /I.learned/, (res) ->
+    say res, "Give a man a fish and he'll eat for a day. Teach a man to fish and he will bore you with fishing stories for the rest of his life."
+    
   surpriseStuff = [
     "I'm not going to tell you what the big surprise is, but you will find out soon enough.",
     "I hate surprises",
@@ -409,10 +464,43 @@ module.exports = (robot) ->
   robot.hear /KBAI.is/, (res) ->
     say res, "KBAI is GOFAI with a Cog Sci emphasis"
   
+  robot.hear /their.resume/i, (res) ->
+    say res, "They can do whatever they want on their resumes. I put \"Devilishly Handsome\" myself. So?"
+    
+  mlExamStuff = [
+    "the assessment for 7641 is a large part of what makes it... special.",
+    "I love those exams"
+  ]
+  
   robot.hear /ML.exams/, (res) ->
-    say res, "I love those exams"
+    say res, res.random mlExamStuff
+  
+  robot.hear /I.understand/, (res) ->
+    say res, "it turns out that humans confuse familiarity with understanding"
+  
+  robot.hear /relevance/, (res) ->
+    say res, 'I feel obligated to point out that "relevance" and "interest" are not the same thing'
+  
+  robot.hear /tragedy.*commons/i, (res) ->
+    say res, "To learn more about tragedies of the commons and prisoners' dilemma, take 7641!"
+    
+  robot.hear /prisoner.*dilemma/i, (res) ->
+    say res, "To learn more about tragedies of the commons and prisoners' dilemma, take 7641!"
+    
+  robot.hear /C\+\+/, (res) ->
+    say res, "one needs C++ to really do permanent damage to one's psyche."
+  
+  robot.hear /registration.*problem/i, (res) ->
+    say res, "A wise man once said: I think the problem with registration will be hoarding."
+
+  robot.hear /solutions/, (res) ->
+    say res, "there are better and worse solutions"
     
   reason = [
+    "The question is an interesting one, sure. I'd be happy to hear ideas.",
+    "That's harder than you think.",
+    "The policy implications are subtle.",
+    "Usually, the answer is: data.",
     "Doing otherwise would probably require that we hire all of you to reprogram Banner in COBOL++.",
     "because, you know, physics.",
     "Somehow this is your fault.",
@@ -448,6 +536,7 @@ module.exports = (robot) ->
     say res, res.random funnyStuff
 
   gradingStuff = [
+    "I don't care about programming / implementing ML algorithms in ML... at all",
     "Remember those words later in the term when you have the urge to complain that assignments are not being graded quickly enough.",
     "My students failed to heed my advice.  So, I killed them.  The papers, not the students.  At least that's what I'm telling the police.",
     "What I care about is the analysis and the way you summarize it in your write up, not your code. WEKA!"
