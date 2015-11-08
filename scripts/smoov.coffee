@@ -499,7 +499,7 @@ module.exports = (robot) ->
     "I like doing analysis, but not theory."
   ]
   
-  robot.hear /theory/i, (res) ->
+  robot.hear /[^n].theory/i, (res) ->
     say res, res.random theoryStuff
 
   robot.hear /prostitution/i, (res) ->
