@@ -6,7 +6,9 @@ module.exports = (robot) ->
       said = said[1...]
     if s not in said
       said = said.concat [s]
-      res.send s
+      setTimeout () ->
+        res.send s
+      , 8 * 1000
   
   cheatingStuff = [
     "When I was a student we didn't have G+ to whip ourselves into a frenzy over things like this. We just sat in our corners and softly wept... and we liked it!",
