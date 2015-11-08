@@ -2,7 +2,7 @@ module.exports = (robot) ->
   
   said = []
   say = (res, s) ->
-    if said.length > 5
+    if said.length > 25
       said = said[1...]
     if s not in said
       said = said.concat [s]
@@ -423,7 +423,7 @@ module.exports = (robot) ->
   robot.hear /thank.*smoov/i, (res) ->
     say res, res.random thanksStuff
 
-  robot.hear /\ words/i, (res) ->
+  robot.hear /\ text.*hurts/i, (res) ->
     say res, "I am often struck by how text destroys lives.  They are like little terrorists.  words, I mean."
 
   robot.hear /teaching.*AI/, (res) ->
@@ -501,7 +501,7 @@ module.exports = (robot) ->
     "I like doing analysis, but not theory."
   ]
   
-  robot.hear /theory/i, (res) ->
+  robot.hear /[^n].theory/i, (res) ->
     say res, res.random theoryStuff
 
   robot.hear /prostitution/i, (res) ->
