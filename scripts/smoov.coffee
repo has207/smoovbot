@@ -2,7 +2,7 @@ module.exports = (robot) ->
   
   said = []
   say = (res, s) ->
-    if said.length > 5
+    if said.length > 25
       said = said[1...]
     if s not in said
       said = said.concat [s]
