@@ -421,7 +421,7 @@ module.exports = (robot) ->
   robot.hear /thank.*smoov/i, (res) ->
     say res, res.random thanksStuff
 
-  robot.hear /\ words/i, (res) ->
+  robot.hear /\ text.*hurts/i, (res) ->
     say res, "I am often struck by how text destroys lives.  They are like little terrorists.  words, I mean."
 
   robot.hear /teaching.*AI/, (res) ->
